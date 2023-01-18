@@ -1,0 +1,101 @@
+@charset "utf-8";
+
+body{
+	background-image: url("IMAGES/bg.png")
+
+}
+.index-table{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+.flex-container{
+	display: flex;
+}
+.about{
+	width: 500px;
+  height: 160px;
+  background: #000000;
+  opacity: .7;
+}
+.pastelbg{
+	background-image: url(GIFS/pastel.gif)
+}
+.headercell{
+	background:
+}
+.rainbow-text {
+
+    text-align: center;
+
+}
+
+.maptable{
+	width: 90%;
+  position: relative;
+  text-align: center;
+  color: white;
+  margin: 5px;
+}
+.center{
+	font-family: sans-serif;
+	position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0,0,0,0.7);
+  background-repeat:repeat-x;
+}
+
+.textbox{
+	background-color: rgba(0,0,0,0.7);
+}
+.tablecenter{
+	margin-left: auto;
+	margin-right: auto;
+}
+.donortable{
+	table{
+		border: 1px solid;
+	width: 100%
+	}
+.stack{
+		position: relative;
+		top: 25;
+		left: 25;
+}
+.image1 {
+	z-index: 1;
+}
+.image2{
+	z-index: 3;
+}
+.inline	{
+	display: inline-block;
+	width: 500px;
+	height: 500px;
+}
+.hidden {
+	display: none;
+}
+$d: 70;      // density
+$w: 600;     // grid size
+$s: 3s;       // speed
+
+// Generate the snow image using radial gradients
+$grad: ();
+@for $i from 0 to $d {
+  $v: random(4) + 2;
+  $a: random(5) * .1 + .5;
+  $grad: $grad, radial-gradient(
+      $v+px $v+px at
+      (random($w - $v * 2) + $v)+px
+      (random($w - $v * 2) + $v)+px, 
+      rgba(255,255,255,$a) 50%,
+      rgba(0,0,0,0)
+  ) !global;
+}
+
+
+}

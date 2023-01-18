@@ -1,0 +1,89 @@
+<html>
+<head>
+<meta charset="utf-8" />
+<title> BonAHNSa - Mapping Guide </title>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<font color = "white">
+<link rel="stylesheet" type="text/css" href="bonahnsa_base.css" >
+<link rel="stylesheet" type="text/css" href="bonahnsa_guide.css" >
+<link rel="stylesheet" href="https://unpkg.com/98.css">
+
+
+</head>
+
+<body>
+<audio id="bgm2" autoplay> 
+	<source src="MUSIC/90kb.mp3" type="audio/mpeg" loop="true">
+	</audio>
+<header class="rainbow-text" >
+		<img src="IMAGES/img11.gif" align="center"> <img src="GIFS/17.gif" align="center"> <img src="IMAGES/neotokyo_cd.jpg" align="center">
+<h3> さようならクリーミー、お見逃しなく！</h3>
+
+	<center>
+	<a href="https://www.youtube.com/playlist?list=PLuACoqN95VJeJ-O19q60Yzq1yEDUyik15">
+		<img  alt="Welcome to BonAHNSa" src="IMAGES/AHNS_logo.png">
+		</a>
+	</center>
+	
+	<h1><center>BonAHNSa Mapping Guide</center></h1>
+	<nav>
+		<ul>
+		<center>
+		<h2>
+		<button onclick="document.location='index.html'">Home </button>
+
+		<button style='background-color:orange;'>=>Maps<=</button>
+		<button disabled>Creamy</button>
+		<button onclick="document.location='SNTPS.html'">Shit NT Players Say</button>
+		<button onclick="document.location='donations.html'">Donate! </button>
+		<br>
+		<button onclick="document.location='mods.html'">Mods </button>
+		<button onclick="document.location='guidelist.html'">Guide</button>
+		<button onclick="document.location='https://bonahnsa.site.nfoservers.com/serverside_demos/'">Demos</button>
+			<button style='background-color:#7289da;'onclick="document.location='https://discord.gg/yfEnzY6K4x'">Discord</button>
+		<button onclick="document.location='MOTD.html'">MOTD</button>
+		</center>
+		</h2>	
+		</ul>
+	</nav>
+	<center>
+	<iframe src="https://cache.gametracker.com/components/html0/?host=74.91.116.227:27015&bgColor=707070&fontColor=ff9500&titleBgColor=1a1a1a&titleColor=ffffff&borderColor=333333&linkColor=ff9900&borderLinkColor=999999&showMap=0&currentPlayersHeight=100&showCurrPlayers=1&showTopPlayers=0&showBlogs=0&width=240" frameborder="0" scrolling="no" width="240" height="288"></iframe>
+	</center>
+	</header>
+	<center>
+	<img src="GIFS/70.gif"><img src="GIFS/70.gif"><img src="GIFS/70.gif"><img src="GIFS/70.gif">
+	</center>
+
+<p></p>
+	<img src="GIFS/12.gif"> <img src="GIFS/UNDERCONSTRUCTION.gif"> <img src="GIFS/construction.gif">
+<div class="textbox">
+<center><h1>Welcome to the BonAHNSa mapping guide/tutorial!</h1></center>
+<br>
+<h3>This guide is intended to help people who have set up Hammer for use in Neotokyo, but don't know the ins and outs of mapping for it.</h3>
+<h4>If you haven't set up Hammer for use for Neotokyo yet, follow Rain's tutorial <a style="color:cyan" href="https://steamcommunity.com/sharedfiles/filedetails/?id=282059949">Here!</a><a style="color:cyan" href="https://web.archive.org/web/20220808023050/https://steamcommunity.com/sharedfiles/filedetails/?id=282059949">(Archive)</a></h4>
+</div>
+<br><br>
+<div class="textbox">
+<center><h1>The Basics</h1></center>
+<h4>Various links for basic Hammer usage, and a guide on Neotokyo mapping fundamentals</h4>
+<h4>Hammer Basics</h4>
+This guide is not tailored for Hammer newbies, but here are a few guides for them.<br>
+<h5><a style="color:cyan" href="https://youtu.be/oL0cR5bZ8mY">Weasel Level Design Hammer Basics </a></h5> A 15 minute video with a general rundown of Hammer fundamentals.
+<br>
+<h5><a style="color:cyan" href="https://www.youtube.com/playlist?list=PLfwtcDG7LpxF7-uH_P9La76dgCMC_lfk3">3kliksphilip Source SDK Tutorials</a></h5> A playlist of Source SDK tutorials that go a little more in depth, including water creation, lighting, skyboxes, and more. Does focus around a newer version of Source SDK, but most still applies to our version of Source.
+<br>
+<h5><a style="color:cyan" href="https://developer.valvesoftware.com/wiki/Main_Page">Valve Developer Wiki</a></h5> A wiki dedicated to documenting virtually every entity and fundamental in the SDK. By default, you will also be taken here if you press F1 while in Hammer.
+<br>
+<h5><a style="color:cyan" href="https://www.interlopers.net/errors/">Interlopers Compile Error Checker</a></h5> In case you encounter an error when compiling (and you will!), paste your compile log in here and you will be told what borked and what you can do to fix it.
+
+<h4>NEOTOKYO mapping basics</h4>
+<p>It is strongly recommended that you get a few hours under your belt so you understand Neotokyo's gameplay, and the layouts of some of the more popular maps. Generally, Neotokyo follows the standard 3 lane layout. Teams will spawn in or on the opposite team's capture zone, with the Ghost spawning in various locations around the map. These locations can be random, but some thought should be put behind them as well. I.e., the ghost in Server Room on Rise is placed in a commonly contested hotspot, the winning team of these shootouts can come out on top with the ghost.</p>
+<p>The info_player_start entity acts as the 'start camera', what you see before reaching the team select menu. Each spawn should have a minimum of 16 spawn points per team. info_player_attacker is the spawn point for Jinrai, info_player_defender is the spawn point for NSF. It is ideal to place these far apart from eachother, otherwise you may end up with a player being spawned in the info_player_start instead.</p>
+<p>You should begin drafting a layout on paper before creating a greybox of your level. Don't immediately go all out making fancy prop arrangements with extravagant lighting just yet; keep it simple for your alpha, and work up from there, so if/when you need to change things in the future, it is a lot easier to do so.
+<p>A standard NEOTOKYO layout is a three-lane map with varying degrees of verticality. Areas of conflict should take place at least halfway through each of these lanes, with options to rotate into different lanes readily available. 
+<p>It is also recommended you stick with using dev textures for the initial stages of your map. You will need to create lights in your level, otherwise the engine will automatically enable mat_fullbright 1 ingame, and make it difficult for you and your players to judge depth and distance.</p>
+</div>
+
+</body>
+
+</html>

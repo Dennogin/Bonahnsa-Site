@@ -1,0 +1,84 @@
+<h1> Welcome to BonAHNSa! </h1>
+<br>
+<script language="JavaScript">
+<!-- Hide JavaScript...
+var LastUpdated = document.lastModified;
+document.writeln ("MOTD last updated " + LastUpdated + ", always subject to change.");
+// End Hiding -->
+</script>
+<audio  autoplay id="bgm"> 
+	<source src="MUSIC/laserdance.mp3" type="audio/mpeg" loop="true" volume='0.4'>
+	</audio>
+<br>
+<i>Don't mind the scrollbar</i>
+<br>
+=====================<br>
+<p>Goto<a href=https://bonahnsa.com/index.html> [bonahnsa.com]</a> for more information, downloads, and funnies</p>
+=====================<br>
+<br>
+<h4>Rules:</h4>
+<li>1: No intentional Teamkilling</li>
+<li>2: No sitting in spectator when you don't like a map (pomme)</li>
+<li>3: No being a dick, i.e. no direct verbal or intentional malicious insults against others.</li>
+<li>4: No loud/annoying micspam or chat spam, or you will be gagged/muted</li>
+<li>5: Be nice/helpful to newcomers</li>
+<li>6: Don't spam new votes; if a vote gets denied don't immediately start a new one</li>
+<li>7: When going AFK, please add an [AFK] tag to your name and go to spectator. AFK players sitting idle in spawn will be kicked.</li>
+<li>8: People with VAC bans are one a <b>one strike</b> policy. Any rule violation will be met with a permaban. No buts.</li>
+<li>9: Intentionally making the ghost unplayable (i.e. throwing it off buildings or disconnecting while holding it) will make you subject to punishment.</li>
+<li>10: Absolutely NO Ghost Hopping. I will hurt you.</li>
+<li>11: Do as admins ask, no matter what. This includes complying with mutes/gags/renames. Disconnecting and rejoining after a mute/gag or changing your name back to what it was before an admin renamed you will make you subject to punishment.</li>
+<br>
+Cheating via external programs or clients (Aimbots and wallhacks) will make you subject to your IP address being published.
+<i>This does not include external scripts which enhance player performance, such as scripts found on our mod page.</i> <br>
+If you disagree with, or believe you cannot follow the rules listed above, you are encouraged to disconnect.<br>
+<b>By connecting, playing and continuing to play on BonAHNSa, you agree to follow these simple rules, and acknowledge that admins can and will deliver punishments and penalties for failure to follow any one.</b>
+<br>
+<h4>SPRAY RULES:</h4>
+<li>No (hard) porn, blatant offensive imagery, gore, or anything you know shouldn't be sprayed.</li>
+<br>
+=====================<br>
+<h4>Commands</h4>
+<b>!radio</b>: Plays the NEOTOKYO soundtrack<br>
+<b>!nominate</b>: Allows you to pick a map for the voting cycle<br>
+<b>!rtv</b>: Casts a Rock The Vote, when half the server Rocks The Vote the voting cycle begins<br>
+<b>!votealltalk</b>: Starts an All Talk vote (Can be buggy)<br>
+<br>
+=====================<br>
+<br>
+<h4>Admins:</h4>
+
+<li>Dennogin (Owner)</li>
+<li>Wahaha</li>
+<li>Kudegra</li>
+<li>Hosomi</li>
+<li>Gabe</li>
+<li>MilK</li>
+<li>Porpoise</li>
+<li>Oni</li>
+<br>
+<h4>Moderators:</h4>
+<li>Moffin</li>
+<li>Zippy</li>
+<li>Dommler</li>
+<li>Diejoubu</li>
+<li>Lili</li>
+<li>LegoRacer</li>
+<li>Jef</li>
+<li>3low</li>
+<li>NeotokyoScrub</li>
+<br>
+=====================
+<br>
+<h4>Recent Changes/Additions/News:</h4>
+
+<h5>August 29 2022:</h5> Updated bonahnsa_hub to Version 2.
+<h5>August 18 2022:</h5> Removed Devastator from the Admin team.
+<h5>August 13 2022:</h5> Removed Kinoko from the moderation team.
+<h5>June 03 2022:</h5> Added Core, Club and Isolation to the random cycle list while removing them from the nomination list (They will appear randomly instead of being nominated), Removed Disengage from the nomination list (We play Engage more often anyway)
+<h5>May 14 2022:</h5> Added Shinkansen and readded Shipment to the maplist.
+<h5>April 23 2022:</h5> Removed Deathmatch plugin due to an error.
+<h5>April 22 2022:</h5> Added Tetsu B2 to maplist. Added the Team Deathmatch and Kill Confirmed plugins.
+<h5>April 21 2022:</h5> Unlocked the server.
+<h5>April 20 2022:</h5> Locked the server to observe Creamy's shutdown.
+<h5>April 19 2022:</h5> Added the MOTD page.

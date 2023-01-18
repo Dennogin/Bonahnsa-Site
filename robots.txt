@@ -1,0 +1,4 @@
+#beepboop!
+
+User-agent: *
+Crawl-delay: 120
