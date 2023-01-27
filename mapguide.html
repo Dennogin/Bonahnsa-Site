@@ -64,24 +64,72 @@
 </div>
 <br><br>
 <div class="textbox">
-<center><h1>The Basics</h1></center>
-<h4>Various links for basic Hammer usage, and a guide on Neotokyo mapping fundamentals</h4>
-<h4>Hammer Basics</h4>
-This guide is not tailored for Hammer newbies, but here are a few guides for them.<br>
-<h5><a style="color:cyan" href="https://youtu.be/oL0cR5bZ8mY">Weasel Level Design Hammer Basics </a></h5> A 15 minute video with a general rundown of Hammer fundamentals.
-<br>
-<h5><a style="color:cyan" href="https://www.youtube.com/playlist?list=PLfwtcDG7LpxF7-uH_P9La76dgCMC_lfk3">3kliksphilip Source SDK Tutorials</a></h5> A playlist of Source SDK tutorials that go a little more in depth, including water creation, lighting, skyboxes, and more. Does focus around a newer version of Source SDK, but most still applies to our version of Source.
-<br>
-<h5><a style="color:cyan" href="https://developer.valvesoftware.com/wiki/Main_Page">Valve Developer Wiki</a></h5> A wiki dedicated to documenting virtually every entity and fundamental in the SDK. By default, you will also be taken here if you press F1 while in Hammer.
-<br>
-<h5><a style="color:cyan" href="https://www.interlopers.net/errors/">Interlopers Compile Error Checker</a></h5> In case you encounter an error when compiling (and you will!), paste your compile log in here and you will be told what borked and what you can do to fix it.
+<div class="window" style="width: 1015px">
+  <div class="title-bar">
+    <div class="title-bar-text">The Basics</div>
+    <div class="title-bar-controls">
+      <button aria-label="Minimize"></button>
+      <button aria-label="Maximize"></button>
+      <button aria-label="Close"></button>
+    </div>
+  </div>
+  <div class="window-body">
+<h3 style="color:black;">Various links for basic Hammer usage, and a guide on Neotokyo mapping fundamentals</h3>
+<h4 style="color:black;">Hammer Basics</h4>
 
-<h4>NEOTOKYO mapping basics</h4>
-<p>It is strongly recommended that you get a few hours under your belt so you understand Neotokyo's gameplay, and the layouts of some of the more popular maps. Generally, Neotokyo follows the standard 3 lane layout. Teams will spawn in or on the opposite team's capture zone, with the Ghost spawning in various locations around the map. These locations can be random, but some thought should be put behind them as well. I.e., the ghost in Server Room on Rise is placed in a commonly contested hotspot, the winning team of these shootouts can come out on top with the ghost.</p>
-<p>The info_player_start entity acts as the 'start camera', what you see before reaching the team select menu. Each spawn should have a minimum of 16 spawn points per team. info_player_attacker is the spawn point for Jinrai, info_player_defender is the spawn point for NSF. It is ideal to place these far apart from eachother, otherwise you may end up with a player being spawned in the info_player_start instead.</p>
-<p>You should begin drafting a layout on paper before creating a greybox of your level. Don't immediately go all out making fancy prop arrangements with extravagant lighting just yet; keep it simple for your alpha, and work up from there, so if/when you need to change things in the future, it is a lot easier to do so.
-<p>A standard NEOTOKYO layout is a three-lane map with varying degrees of verticality. Areas of conflict should take place at least halfway through each of these lanes, with options to rotate into different lanes readily available. 
-<p>It is also recommended you stick with using dev textures for the initial stages of your map. You will need to create lights in your level, otherwise the engine will automatically enable mat_fullbright 1 ingame, and make it difficult for you and your players to judge depth and distance.</p>
+<p style="color:black;">This guide is not tailored for Hammer newbies, but here are a few guides for them.<br>
+<h5><a href="https://youtu.be/oL0cR5bZ8mY">Weasel Level Design Hammer Basics </a></h5> <p style="color:black;"> A 15 minute video with a general rundown of Hammer fundamentals.</p>
+
+<h5><a href="https://www.youtube.com/playlist?list=PLfwtcDG7LpxF7-uH_P9La76dgCMC_lfk3">3kliksphilip Source SDK Tutorials</a></h5> 
+<p style="color:black;">A playlist of Source SDK tutorials that go a little more in depth, including water creation, lighting, skyboxes, and more. Does focus around a newer version of Source SDK, but most still applies to our version of Source.</p>
+
+<h5><a href="https://developer.valvesoftware.com/wiki/Main_Page">Valve Developer Wiki</a></h5> <p style="color:black;">A wiki dedicated to documenting virtually every entity and fundamental in the SDK. By default, you will also be taken here if you press F1 while in Hammer.</p>
+
+<h5><a href="https://www.interlopers.net/errors/">Interlopers Compile Error Checker</a></h5> <p  style="color:black;">In case you encounter an error when compiling (and you will!), paste your compile log in here and you will be told what borked and what you can do to fix it.</p>
+
+<h4 style="color:black;">NEOTOKYO mapping basics</h4>
+
+<h5 style="color:black;">Know the game</h5>
+<p style="color:black;">It is strongly recommended that you get a few hours under your belt so you understand Neotokyo's gameplay, and the layouts of some of the more popular maps. Generally, Neotokyo follows the standard 3 lane layout. Teams will spawn in or on the opposite team's capture zone, with the Ghost spawning in various locations around the map.</p>
+<blockquote><h5 style="color:black; text-indent=100px;"><i>On Studying Maps</i></h5></blockquote>
+<blockquote> <p style="color:black;">NEOTOKYO maps have different varieties of layout and style. Some are short and compact, others are large and sprawling. You should take note of how things are laid out and placed in different map styles, like how Oilstain has a large meeting point in the center, or how Turmuk has a lower tarmac to avoid sniper fire from the upper tarmac.</p></blockquote>
+
+<h5 style="color:black;">Drafting a map</h5>
+<p style="color:black;">Before even opening Hammer, you should first start by drafting a layout on paper before creating a greybox of your level. When drafting the layout, keep things simple and stick to just the three lanes you need to create. Don't bother with super complex flank routes or an impressive vent maze <i>yet</i>, you should only be concerned about adding these complex features when the map may call for it down the line.
+<p style="color:black;">A standard NEOTOKYO layout is a three-lane map with varying degrees of verticality. Areas of conflict should take place at least halfway through each of these lanes, with options to rotate into different lanes readily available.
+<blockquote><h5 style="color:black; text-indent=100px;"><i>On Sightlines</i></h5></blockquote>
+<blockquote> <p style="color:black;">Due to the nature of NEOTOKYO's gunplay, you should make sure that you don't have any unnecessarily long sightlines within your map. Random spread can be annoying at long ranges, and if your map is completely wide open (Think nt_isolation_ctg) then your map may simply become a race for an SRS, which you do not want.</p></blockquote>
+<blockquote><h5 style="color:black; text-indent=100px;"><i>On Ghost Placement</i></h5></blockquote>
+<blockquote> <p style="color:black;"> Ghosts will spawn at specified locations at random. Each position should have some thought put behind them. I.e., the ghost in Server Room on Rise is placed in a commonly contested hotspot, the winning team of these shootouts can come out on top with the ghost. As far as anyone knows there is no known limit to how many ghost spawn points there can be, but most maps typically have 5-7 ghost spawns. Avoid placing ghosts right next to capture zones, as teams should be given a chance to contest their capture.</p></blockquote>
+
+
+<h5 style="color:black;">Spawn Points Ahoy</h5>
+<p style="color:black;">The info_player_start entity acts as the 'start camera', what you see before reaching the team select menu.</p>
+<fieldset>
+	<figure>
+		<img src='IMAGES/Guide/mapping/infoplayerstart.png' width="100%">
+		<figcaption style="color:black;">The torso of an info_playerstart entity determines where the camera is aimed upon loading into the level. If an info_playerstart entity does <b>not</b> exist inside a level, the camera will be at the world origin.
+	</figure>
+</fieldset>
+ <p style="color:black;">Each spawn should have a minimum of 16 spawn points per team. info_player_attacker is the spawn point for Jinrai, info_player_defender is the spawn point for NSF. Ingame, these spawns will swap each round, so by round 2 Jinrai will spawn on the NSF side, etc. It is ideal to space the spawn points for each team apart, otherwise you may end up with a player being spawned in the info_player_start instead.
+ <p style="color:black;">The direction the mannequins face will also dictate which way players will face upon spawning. The direction should face toward a point of interest, such as a lane to travel through. Avoid facing players up against walls if possible.
+
+<h5 style="color:black;">Time to Greybox</h5>
+<p style="color:black;">Greyboxing is when you create the core basis of your map using simple dev textures (Greybox gets it name from how most engines have a default 'grey' texture color)</p>
+<p style="color:black;">First, you need to ensure that leaks cannot be created in your level. Personally, I use the Cordon tool to create the skybox for me, so I can easily adjust as I go along. After your first few Alphas, however, you should implement a form fitting skybox, as a skybox cube is not performance friendly.</p>
+<p style="color:black;">Stick to a larger grid size when blocking out your map. Values above 16 are optimal, but 32 is recommended for brushes which are intended to break up different areas of the map.</p>
+<p style="color:black;">Avoid detailing, unless if absolutely necessary for the purpose of telling rooms apart or for cover/concealment purposes. If you throw down a lot of props early on and find that the room needs to be completely redesigned, you will have to erase a lot of your work.</p>
+<blockquote><h5 style="color:black; text-indent=100px;"><i>Avoiding Fullbright</i></h5></blockquote>
+<blockquote> <p style="color:black;">You will need to create lights in your level, otherwise the engine will automatically enable mat_fullbright 1 ingame, and make it difficult for you and your players to judge depth and distance. For your first alpha version, you can get away with simple lighting by placing default light entities around your map, and using an env_light entity to brighten up exterior environments. In later versions, you will have to move these around and illuminate your map properly.</p>
+<fieldset>
+<figure>
+<img src="IMAGES/Guide/mapping/fullbright.png" width="100%">
+<center>
+<ficaption style="color:black;">Notice how difficult it is to perceive depth when there are no visible shadows in frame. This will make map playtests difficult.
+</center>
+</figure>
+</fieldset>
+</blockquote>
 </div>
 
 </body>
