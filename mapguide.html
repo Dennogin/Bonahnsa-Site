@@ -8,6 +8,13 @@
 <link rel="stylesheet" type="text/css" href="bonahnsa_guide.css" >
 <link rel="stylesheet" href="https://unpkg.com/98.css">
 
+<meta property="og:title" content="BonAHNSa Mapping Guide">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bonahnsa.com/mapguide.html">
+<meta property="og:title" content="BonAHNSa | Mapping Guide">
+<meta property="og:description" content="BonAHNSa's guide on creating maps.">
+<meta property="og:image" content="https://bonahnsa.com/IMAGES/AHNS_logo.png">
+<meta name="theme-color" content="#fc6b03">
 
 </head>
 
@@ -55,7 +62,13 @@
 	</center>
 
 <p></p>
+<!--
 	<img src="GIFS/12.gif"> <img src="GIFS/UNDERCONSTRUCTION.gif"> <img src="GIFS/construction.gif">
+	
+	To do:
+	Finish the in-depth stuff
+	Make a table of contents
+-->
 <div class="textbox">
 <center><h1>Welcome to the BonAHNSa mapping guide/tutorial!</h1></center>
 <br>
@@ -64,7 +77,7 @@
 </div>
 <br><br>
 <div class="textbox">
-<div class="window" style="width: 1015px">
+<div class="window" style="width: 1015px; margin:auto">
   <div class="title-bar">
     <div class="title-bar-text">The Basics</div>
     <div class="title-bar-controls">
@@ -107,31 +120,118 @@
 <p style="color:black;">The info_player_start entity acts as the 'start camera', what you see before reaching the team select menu.</p>
 <fieldset>
 	<figure>
-		<img src='IMAGES/Guide/mapping/infoplayerstart.png' width="100%">
+		<img src='IMAGES/guide/mapping/infoplayerstart.png' width="100%">
 		<figcaption style="color:black;">The torso of an info_playerstart entity determines where the camera is aimed upon loading into the level. If an info_playerstart entity does <b>not</b> exist inside a level, the camera will be at the world origin.
+		</figcaption>
 	</figure>
 </fieldset>
- <p style="color:black;">Each spawn should have a minimum of 16 spawn points per team. info_player_attacker is the spawn point for Jinrai, info_player_defender is the spawn point for NSF. Ingame, these spawns will swap each round, so by round 2 Jinrai will spawn on the NSF side, etc. It is ideal to space the spawn points for each team apart, otherwise you may end up with a player being spawned in the info_player_start instead.
- <p style="color:black;">The direction the mannequins face will also dictate which way players will face upon spawning. The direction should face toward a point of interest, such as a lane to travel through. Avoid facing players up against walls if possible.
+ <p style="color:black;">Each spawn should have a minimum of 16 spawn points per team. info_player_attacker is the spawn point for Jinrai, info_player_defender is the spawn point for NSF. Ingame, these spawns will swap each round, so by round 2 Jinrai will spawn on the NSF side, etc. It is ideal to space the spawn points for each team apart, otherwise you may end up with a player being spawned in the info_player_start instead.</p>
+ <p style="color:black;">The direction the mannequins face will also dictate which way players will face upon spawning. The direction should face toward a point of interest, such as a lane to travel through. Avoid facing players up against walls if possible.</p>
 
 <h5 style="color:black;">Time to Greybox</h5>
 <p style="color:black;">Greyboxing is when you create the core basis of your map using simple dev textures (Greybox gets it name from how most engines have a default 'grey' texture color)</p>
-<p style="color:black;">First, you need to ensure that leaks cannot be created in your level. Personally, I use the Cordon tool to create the skybox for me, so I can easily adjust as I go along. After your first few Alphas, however, you should implement a form fitting skybox, as a skybox cube is not performance friendly.</p>
+<p style="color:black;">First, you need to ensure that leaks cannot be created in your level. Personally, I use the Cordon tool to create the skybox for me, so I can easily adjust as I go along and easily enable and disable it in the future. After your first few Alphas, however, you should implement a form fitting skybox, as a skybox cube is not performance friendly.</p>
 <p style="color:black;">Stick to a larger grid size when blocking out your map. Values above 16 are optimal, but 32 is recommended for brushes which are intended to break up different areas of the map.</p>
 <p style="color:black;">Avoid detailing, unless if absolutely necessary for the purpose of telling rooms apart or for cover/concealment purposes. If you throw down a lot of props early on and find that the room needs to be completely redesigned, you will have to erase a lot of your work.</p>
 <blockquote><h5 style="color:black; text-indent=100px;"><i>Avoiding Fullbright</i></h5></blockquote>
 <blockquote> <p style="color:black;">You will need to create lights in your level, otherwise the engine will automatically enable mat_fullbright 1 ingame, and make it difficult for you and your players to judge depth and distance. For your first alpha version, you can get away with simple lighting by placing default light entities around your map, and using an env_light entity to brighten up exterior environments. In later versions, you will have to move these around and illuminate your map properly.</p>
 <fieldset>
 <figure>
-<img src="IMAGES/Guide/mapping/fullbright.png" width="100%">
+<img src="IMAGES/guide/mapping/fullbright.png" width="100%">
 <center>
 <ficaption style="color:black;">Notice how difficult it is to perceive depth when there are no visible shadows in frame. This will make map playtests difficult.
 </center>
 </figure>
 </fieldset>
 </blockquote>
+
+
+<h5 style="color:black;">Using gameplay entities</h5>
+<p style="color:black;"> To enable the CTG Gamemode, you must place a <b>neo_game_config</b> entity, access its properties and enable the CTG gamemode in the Game Type keyvalue. Not doing so will default the map to Team Deathmatch, which for some maps may be favorable. <b>The only gamemodes which currently work in NEOTOKYO are Team Deathmatch (TDM) and Capture The Ghost (CTG). Any attempts to use other gamemodes will lead to dissapointment.</b></p>
+
+
+
+<p style="color:black;">Next you need to place the capture zones, which are entities called <b>neo_ghost_retrieval_point</b>. You will have to adjust which team "owns" the point by attacker or defender. When it comes to attacker/defender spawns, you should assign these <b>opposite</b> to their spawn zone, i.e. the capture zone in the attacker spawn should be owned by the defender team, and vice versa. You can adjust the radius for the capture zones by dragging the drag points on the circle in the 2D view, or manually entering a value in the retrieval point's properties menu. These should be a tad larger than you think you may need them. Most NEOTOKYO maps use this style of capture zone placement, but it is not a bad thing to be creative with it! You can always adjust these spawns in later versions. </p>
+
+
+
+
+<p style="color:black;">Finally, you need to place locations where the Ghost can spawn. This is done with the aptly named entity <b>neo_ghostspawnpoint</b>. As mentioned earlier, there's no known limit to how many of these can be placed (Do ring us if you find out!) but most maps use roughly 5-7 different ghost spawns, depending on the map size. These are really a "set it and forget it" entity, no configuration is needed (or available) for this entity. Do note however that the ghost model is not indicative of where it will actually spawn ingame; it seems to vary inside the yellow cube.</p>
+
+<fieldset  style= "display: inline; float: center; height:150px; width:150px">
+<center>
+<img src="IMAGES/guide/mapping/gamemode_ent.png" height="auto">
+<figcaption style="color:black;">The icon for the neo_game_config entity</figcaption>
+</center>
+</fieldset>
+
+<fieldset style= "display: inline; float: center;">
+<center>
+<img src="IMAGES/guide/mapping/capture_zone.png" height="150px" width= "150px">
+<figcaption style="color:black;">The neo_ghost_retrieval_point entity.
+<figcaption style="color:black;">Note the sphere casted out from its origin.</figcaption>
+</center>
+</fieldset>
+
+<fieldset  style= "display: inline; float: center;" >
+<center>
+<img src="IMAGES/guide/mapping/ghost_spawn.png" height="150px" width= "150px">
+<figcaption style="color:black;">A neo_ghostspawnpoint entity. Note the yellow cube.
+</center>
+</fieldset>
+
+<h5 style="color:black;">Internal testing</h5></blockquote>
+<p style="color:black;">You will never get things right the first time, your A1 will take up many compiles before things work correctly. For every compile you run for the purpose of testing things out, you should run it in Fast/Fast to reduce the time spent waiting for your compiles to finish. Some things like lighting, prop placements, route adjustments and other in-depth aspects of your map will need to be handled internally, as they may not warrant a full on playtest by the community. Some things, however, like a completely new version of a map, will require such a playtest.</p>
+<p style="color:black;">However, this does not mean you can't test if things are working properly by yourself. For example, you should test to make sure that you set up the CTG entities correctly <i>before</i> publishing a map. Enter the console window and enter <b>sv_cheats 1</b>. This will enable cheat protected commands. Here's an incomplete list of some commonly used commands and what they may be used for:</p>
+<blockquote><h5 style="color:black; text-indent=100px;"><i>Commonly used debug commands</i></h5></blockquote>
+<blockquote> <li style="color:black;"> sv_cheats 1 :: Enables the cheat commands
+<li style="color:black;"> add_bot :: Spawns a bot. Pretty dumb and useless on their own, but they will kick off the player requirements needed to start CTG, which will allow you to test your CTG entities.</li>
+<li style="color:black;"> mat_wireframe 1-3 :: Adds wireframing to materials and draws them through walls. Useful to debug map optimization, i.e. ensuring that a part of the map isn't rendering when you are a considerable distance away from it.</li>
+<li style="color:black;"> give weapon_x :: Spawns a weapon of your choice. Useful to test penetrations on walls or test nade bounces.</li>
+<li style="color:black;"> noclip :: Allows you to fly through walls.</li>
+</blockquote>
+
+
+<h5 style="color:black;">Publishing the map</h5>
+<p style="color:black;">When you are finished with the minimum viable product of your map, where the</li>
+<li style="color:black;">Layout is finished</li>
+<li style="color:black;">Areas are simply lit</li>
+<li style="color:black;">Spawn points are properly set and confirmed working after internal testing</li>
+<li style="color:black;">You have thoroughly tested your map's CTG entities</li>
+
+
+<p style="color:black;">You may be ready to publish the A1! You may need to do the legwork to organize a playtest of the Alpha, by messaging server owners and asking a group of players (Usually PUG players) to try a playtest of your map. It's not recommended to ask to push an Alpha 1 to pub servers, though owners may do it you will get a lot of angry complaints about the map having dev textures and very little actual feedback, if it hasn't already been RTV'd to Rise.</p>
+<p style="color:black;">When playtesting, you should try to play the map in the way <i>you</i> have intended, to see if it actually fit the vision you had for it. This will either show your playtesters how the map flow works, or show you how off you thought the timing on some routes were. Make note of these concerns, as well as any criticisms/critiques your playtesters have about the map. Use these and apply them to the next version of the map, your Alpha version 2.</p>
+
+<blockquote><h5 style="color:black; text-indent=100px;"><i>Naming Conventions</i></h5></blockquote>
+<blockquote> <p style="color:black;">Each map should meet a standard naming convention, which goes like <b>nt_mapname_gamemode_versionx</b>. The initials of NEOTOKYO, followed by the mapname, followed by the gamemode, then the version number. If a map is finished, the version number is removed, and this considers the map "final". This makes it easier for admins to switch to your map, as it is more common for the version number to appear at the end of the mapname. The version should have the initial of the version type, followed by the number. For example, <b>nt_mymap_ctg_a3</b> is clear and understandable that this is the Alpha version 3 of the map MyMap. Betas are marked with B, and Release Candidates are marked with RC.</p></blockquote>
+
+<blockquote><h5 style="color:black; text-indent=100px;"><i>Playtesting in Pubs</i></h5></blockquote>
+<blockquote> <p style="color:black;">When your map is well into its later Alpha/Beta stages, you may feel inclined to allow the community at large play it rather than keep it locked behind PUGs. You should not feel ashamed or selfish for this, full stop, you're providing something new and fresh for the community and you should not feel bad about it, and you deserve to play on something you spent countless nights perfecting. </p>
+<p style="color:black;">That said, in its current state Pubs are not entirely friendly to the concept of new maps. Quite often will there be players who vote to swap the map to a vanilla map like Rise or Oilstain, basically robbing you out of your enjoyment, your time and your energy because they spotted a dev texture on the floor somewhere. <b>Please feel free to report these instances to the BonAHNSa staff if and when this occurs</b>. </p>
+<p style="color:black;">Other than that, you will also receive rather nasty comments about your map, and unfortunately you will have to determine for yourself if these comments are helpful or offer nothing of value (The latter quite often being the case). At the end of the day however, <b>this is your map, not the communities’, and you get to decide what you want to make out of it.</b> Ignore nitpicky comments, complaints about map style/aesthetic, and never people please just to hear some positive feedback for something you didn't want in the first place.</p></blockquote>
+
+<h5 style="color:black;">Version incrementing</h5>
+<p style="color:black;">Each version should have substantial changes made compared to previous versions, whether it is routing changes, detailing, and of course a healthy dose of bugfixing. It also tells how far along a map is in its development cycle, an Alpha 6 is further along in development than an Alpha 3. However, it helps to tell the players/playtesters if something is planned to be final or not. An <b>Alpha</b> [Initialed by A] tells players that things in the map are still subject to change, such as layouts, routing, or other features. <b>Beta</b> [initialed by B] maps are mostly set in stone versions which may mostly focus on detailing or polishing the map. <b>Release Candidates</b> [initialed by RC] are one of a few final releases for a map, which may solely just focus on squishing a last few bugs or issues leftover from Beta that may exist.</p>
+
+</div>
+</div>
+<br><br>
+<div class="window" style="width: 1015px; margin:auto">
+  <div class="title-bar">
+    <div class="title-bar-text">The in-depth stuff</div>
+    <div class="title-bar-controls">
+      <button aria-label="Minimize"></button>
+      <button aria-label="Maximize"></button>
+      <button aria-label="Close"></button>
+    </div>
+  </div>
+  <div class="window-body">
+    <p style="color:black">Coming soon...</p>
+  </div>
 </div>
 
+</div>
 </body>
 
 </html>
