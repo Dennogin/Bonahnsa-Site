@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8" />
@@ -6,7 +7,7 @@
 <font color = "white">
 <link rel="stylesheet" type="text/css" href="bonahnsa_base.css" >
 <link rel="stylesheet" type="text/css" href="bonahnsa_guide.css" >
-<link rel="stylesheet" href="https://unpkg.com/98.css">
+<link rel="stylesheet" href="https://unpkg.com/98.css@0.1.18/dist/98.css">
 
 <meta property="og:title" content="BonAHNSa Mapping Guide">
 <meta property="og:type" content="website">
@@ -33,6 +34,29 @@
 	</center>
 	
 	<h1><center>BonAHNSa Mapping Guide</center></h1>
+	
+		<center>
+	<div class="window" style="overflow: hidden; display: table; align: center;">
+  <div class="title-bar">
+    <div class="title-bar-text">Active NEOTOKYO Games!</div>
+    <div class="title-bar-controls">
+      <button aria-label="Minimize"></button>
+      <button aria-label="Maximize"></button>
+      <button aria-label="Close"></button>
+    </div>
+  </div>
+  <div class="window-body" style="display: table-row;">
+    <iframe src="https://gleammerray.github.io/interlinked/neotokyo/top-server.html"
+    frameborder="0" 
+    marginheight="0" 
+    marginwidth="0" 
+    scrolling="auto"
+    height="375"></iframe>
+  </div>
+</div>
+	</center>
+	
+	
 	<nav>
 		<ul>
 		<center>
@@ -54,7 +78,7 @@
 		</ul>
 	</nav>
 	<center>
-	<iframe src="https://cache.gametracker.com/components/html0/?host=74.91.116.227:27015&bgColor=707070&fontColor=ff9500&titleBgColor=1a1a1a&titleColor=ffffff&borderColor=333333&linkColor=ff9900&borderLinkColor=999999&showMap=0&currentPlayersHeight=100&showCurrPlayers=1&showTopPlayers=0&showBlogs=0&width=240" frameborder="0" scrolling="no" width="240" height="288"></iframe>
+	
 	</center>
 	</header>
 	<center>
@@ -74,6 +98,7 @@
 <br>
 <h3>This guide is intended to help people who have set up Hammer for use in Neotokyo, but don't know the ins and outs of mapping for it.</h3>
 <h4>If you haven't set up Hammer for use for Neotokyo yet, follow Rain's tutorial <a style="color:cyan" href="https://steamcommunity.com/sharedfiles/filedetails/?id=282059949">Here!</a><a style="color:cyan" href="https://web.archive.org/web/20220808023050/https://steamcommunity.com/sharedfiles/filedetails/?id=282059949">(Archive)</a></h4>
+<h4>Alternatively download and use Rain's NT Hammer Bootstrap installer <a href="https://bonahnsa.site.nfoservers.com/nt-hammer-bootstrap-Windows.zip">Here!</a></h4>
 </div>
 <br><br>
 <div class="textbox">
@@ -184,6 +209,7 @@
 
 <h5 style="color:black;">Internal testing</h5></blockquote>
 <p style="color:black;">You will never get things right the first time, your A1 will take up many compiles before things work correctly. For every compile you run for the purpose of testing things out, you should run it in Fast/Fast to reduce the time spent waiting for your compiles to finish. Some things like lighting, prop placements, route adjustments and other in-depth aspects of your map will need to be handled internally, as they may not warrant a full on playtest by the community. Some things, however, like a completely new version of a map, will require such a playtest.</p>
+<p style="color:black;">When testing for optimization, visibility and framerate, you should instead run it on Normal/Normal so VVIS does everything necessary to optimize the map as opposed to Fast/Fast.</p>
 <p style="color:black;">However, this does not mean you can't test if things are working properly by yourself. For example, you should test to make sure that you set up the CTG entities correctly <i>before</i> publishing a map. Enter the console window and enter <b>sv_cheats 1</b>. This will enable cheat protected commands. Here's an incomplete list of some commonly used commands and what they may be used for:</p>
 <blockquote><h5 style="color:black; text-indent=100px;"><i>Commonly used debug commands</i></h5></blockquote>
 <blockquote> <li style="color:black;"> sv_cheats 1 :: Enables the cheat commands
@@ -229,8 +255,33 @@
     </div>
   </div>
   <div class="window-body">
-    <p style="color:black">Coming soon...</p>
+  <h5 style="color:black">Caveats and broken shit</h5>
+    <p style="color:black">Even though NEOTOKYO is a Sourcemod, there are a few things from the 2006 version of Source that are either broken, unimplemented, or entirely missing from it when used ingame. Here's several things which may not work if you try to implement them:</p>
+	<li style="color:black; font:verdana;"><b>env_laser</b>: Will likely crash the game when clients look at the lasers using vanilla values. Unknown reason why. However, nt_rise_ctg does make use of env_laser in the skybox for lightning.</li>
+	<li style="color:black;"><b>Player Reflections</b>: Due to the Source Engine version being older, player reflections do not work.</li>
+	<li style="color:black;"><b>HL2 Props</b>: Several Half Life 2 props, namely character ragdolls and several props, do not work properly in NEOTOKYO and will instead display a flashing ERROR sign. Ensure that any HL2 prop you add into your map spawns correctly.</li>
+	<li style="color:black;"><b>Parented NEOTOKYO Entities</b>: NT Entities cannot be parented to other entities, i.e. you cannot parent cap zones to a moving cap point, have the ghost stay attached to a moving vehicle, or parent player spawns to an elevator (There is a workaround for this)
+	<li style="color:black;"><b>Alternate Game modes</b>: As mentioned before, the only game modes present in NT are Capture The Ghost and Team Deathmatch. However, depending on the layout/style of your map, it can easily be an attack/defense map akin to Isolation.
+	
+	<br>
+	<br>
+	<h5 style="color:black; text-indent=100px;"><i>Spawning Prefabs</i></h5>
+	<p style="color:black;">You may have created a neat little prop you want to plaster around your map, or you downloaded a prefab to navigate around a certain issue. But when you click to spawn the prefab, it doesn't do anything. For some reason prefabs will spawn with a wild offset and may make it look like it failed to spawn altogether. Fortunately when a prefab is spawned it is automatically selected. Simply hit CTRL+X to 'Cut' it out of the game world, and press CTRL+V to paste it back in. You'll eventually work this into muscle memory.
+	
+	<h5 style="color:black; text-indent=100px;"><i>Teleporting Spawns</i></h5>
+	<p style="color:black;">If your map has a spawn (or both spawns) which includes a moving element like an elevator, you may run into the fact that spawn points cannot be parented to the elevator. However, there is a pretty simple workaround for this problem.</p>
+	<p style="color:black;">By using trigger teleport and teleport destination entities, you can have players spawn inside the teleport brush and have them teleport into a spawn location. Since info_teleport_destination entities can be parented, all one has to do is parent the destination to a moving platform, or leave it as is to prevent players spawning in the info_player_start in crowded servers/environments.</p>
+	<p style="color:black;">You may download a simple prefab of this setup <a href="https://bonahnsa.site.nfoservers.com/guidedls/teleport_spawns.vmf">HERE</a></p>
+	<img src="IMAGES/guide/mapping/teleport_spawn.png" width="45%">
+	
+	<h5 style="color:black; text-indent=100px;"><i>Ghost Clips</i></h5>
+	<p style="color:black;">If you play enough NT, you will eventually come across a situation where some goober decides to throw the ghost off the ledge to make it unplayable for everyone, or the ghost ends up in a location where it is virtually unreachable. You may also find that there's no stock brush or entity to prevent the ghost falling off these ledges. You could just place invisible brushes around these areas, but invisible brushes will block everything, including players and bullets. So, what's one to do about this?</p>
+	<p style="color:black;">The answer is pretty simple but it took ages to discover. Since the Ghost is a <a href="https://developer.valvesoftware.com/wiki/VPhysics">VPhysics Object</a>, the func_clip_vphysics brush entity will only collide with VPhysics objects. Since the player and thrown grenades are not VPhysics objects, they will not be blocked by this brush.</p>
+	<p style="color:black;">The Ghost is a VPhysics object, but so are all the other weapons in the game. Maybe you want only the ghost to collide with this brush, so you can laugh as some guy drops his SRS over the ledge. This is pretty simple too. By using a filter_activator_class, you can specify what VPhysics objects will interact with this brush. In the filter settings, have it "allow" any entities with the name "weapon_ghost". Now have every func_clip_vphysics entity use this filter. Now you have a perfectly functional ghost clip brush. Do note that this won't stop someone from just carrying the ghost off the ledge. Unfortunately we're still trying to find an entity to fix dumbasses.</p>
+	<p style="color:black;">You may download a simple prefab of this setup <a href="https://bonahnsa.site.nfoservers.com/guidedls/ghostclip.vmf">HERE</a></p>
   </div>
+  
+  
 </div>
 
 </div>
